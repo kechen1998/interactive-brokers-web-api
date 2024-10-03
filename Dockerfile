@@ -23,6 +23,10 @@ COPY start.sh /app
 ADD webapp webapp
 ADD scripts scripts
 
+# Set up the virtual environment and install dependencies
+RUN cd /app/webapp && python3 -m venv venv
+RUN . /app/webapp/venv/bin/activate && /app/webapp/venv/bin/pip install -r /app/webapp/requirements.txt
+
 # Commented out for now, some commands that are helpful if you want to install your own SSL certificate
 # RUN keytool -genkey -keyalg RSA -alias selfsigned -keystore cacert.jks -storepass abc123 -validity 730 -keysize 2048 -dname CN=localhost
 # RUN keytool -importkeystore -srckeystore cacert.jks -destkeystore cacert.p12 -srcstoretype jks -deststoretype pkcs12 -srcstorepass abc123 -deststorepass abc123
