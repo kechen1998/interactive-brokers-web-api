@@ -7,8 +7,6 @@ ccp: false
 svcEnvironment: "v1"
 sslCert: "vertx.jks"
 sslPwd: "mywebapi"
-#sslCert: "cacert.jks"
-#sslPwd: "abc123"
 authDelay: 3000
 portalBaseURL: ""
 serverOptions:
